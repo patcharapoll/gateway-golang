@@ -1,0 +1,8 @@
+bin
+.env
+.idea
+*.pb.go
+.vscode
+.DS_Store
+internal/graph/generated/generated.go
+internal/graph/model/models_gen.go
