@@ -24,6 +24,7 @@ const (
 	authorizationContextKey = "authorizationContextKey"
 )
 
+// UserIDMiddleware ...
 func UserIDMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		userID := c.GetHeader(userID)
@@ -37,6 +38,7 @@ func UserIDMiddleware() gin.HandlerFunc {
 	}
 }
 
+// HeaderMiddleware ...
 func HeaderMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		c.Set(uuidContextKey, c.GetHeader(UUID))
@@ -46,6 +48,7 @@ func HeaderMiddleware() gin.HandlerFunc {
 	}
 }
 
+// ForUUIDContext ...
 func ForUUIDContext(ctx context.Context) string {
 	gc, err := utils.GinContextFromContext(ctx)
 	if err != nil {
@@ -59,6 +62,7 @@ func ForUUIDContext(ctx context.Context) string {
 	return d
 }
 
+// ForUserIDContext ...
 func ForUserIDContext(ctx context.Context) string {
 	gc, err := utils.GinContextFromContext(ctx)
 	if err != nil {
@@ -72,6 +76,7 @@ func ForUserIDContext(ctx context.Context) string {
 	return d
 }
 
+// ForAuthorizationContext ...
 func ForAuthorizationContext(ctx context.Context) string {
 	gc, err := utils.GinContextFromContext(ctx)
 	if err != nil {

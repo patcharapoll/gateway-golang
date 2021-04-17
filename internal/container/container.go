@@ -3,6 +3,8 @@ package container
 import (
 	"context"
 	"gateway-golang/internal/config"
+	"gateway-golang/internal/graph/resolver"
+	"gateway-golang/internal/infrastructure/grpcclient"
 	"gateway-golang/internal/infrastructure/http"
 
 	"go.uber.org/fx"
@@ -20,6 +22,8 @@ func (c *Container) configure() []fx.Option {
 	return []fx.Option{
 		config.Module,
 		http.Module,
+		grpcclient.Module,
+		resolver.Module,
 	}
 }
 

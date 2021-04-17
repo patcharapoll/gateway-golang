@@ -1,0 +1,104 @@
+type CustomerProfile {
+    suittest: SuitabilityAssessment!
+    customerInfo: CustomerInfo!
+    addressInfo: AddressInfo!
+    careerInfo: CareerInfo!
+    income: Income!
+}
+
+input DipChip {
+    citizenId: String!
+    titleTh: String!
+    firstnameTh: String!
+    middlenameTh: String!
+    lastnameTh: String!
+    titleEn: String!
+    firstnameEn: String!
+    middlenameEn: String!
+    lastnameEn: String!
+    addressNo: String!
+    moo: String!
+    trok: String!
+    soi: String!
+    road: String!
+    subDistrict: String!
+    district: String!
+    province: String!
+    gender: String!
+    birthdate: String!
+    issueBy: String!
+    issueDate: String!
+    expiryDate: String!
+    serialNum: String!
+    laserId: String!
+    chipNo: String!
+    bp1: String!
+}
+
+type CustomerInfo {
+    title: String!
+    firstNameTH: String!
+    lastNameTH: String!
+    firstNameEN: String!
+    lastNameEN: String!
+    gender: String!
+    nationality: String!
+    birthdate: String!
+    maritalStatus: String!
+    citizenID: String!
+    citizenExpiryDate: String!
+}
+
+type AddressInfo {
+    currentAddress: Address
+    residenceAddress: Address
+    mailingAddress: Address
+    mobileNumber: String!
+    email: String!
+}
+
+type CareerInfo {
+    occupation: String!
+    position: String!
+    businessType: String!
+    workplaceAddress: Address
+    fatca: Boolean!
+}
+
+type Income {
+    incomeSourceCountry: String!
+    incomeSource: [String!]!
+    monthlyIncome: String!
+}
+
+type Address {
+    no: String!
+    floor: String
+    building: String
+    soi: String
+    road: String
+    moo: String
+    subDistrict: String!
+    district: String!
+    province: String!
+    postalCode: String!
+    country: String!
+}
+
+type SuitabilityAssessment {
+    riskLevel: String!
+    riskLevelRecommend: String!
+    expiredDate: String!
+    acceptDerivativeInvestment: Boolean!
+    acceptFXRisk: Boolean!
+}
+
+type StaffProfile {
+    titile: String!
+    firstName: String!
+    lastName: String!
+    team: String!
+    mobileNumber: String!
+    icLicenseNo: String!
+    email: String!
+}

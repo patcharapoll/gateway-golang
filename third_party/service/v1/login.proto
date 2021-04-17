@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package my_service.v1;
+
+option go_package = "./;my_service_v1";
+
+message LoginRequest {
+  string user_id = 1;
+  string mobile_no = 2;
+  string email = 3;
+  string pin = 4;
+  DeviceInformation device_information = 5;
+}
+
+message DeviceInformation {
+  string device_id = 1;
+  string device_model = 2;
+  string device_os = 3;
+  string fcm_token = 4;
+}
+
+message LoginResponse {
+  bool success = 1;
+  repeated ErrorResponse error = 2;
+}
+
+message ErrorResponse {
+  string error_code = 1;
+  string error_desc = 2;
+}
+
+service LoginService {
+  rpc Login(LoginRequest) returns (LoginResponse){};
+};

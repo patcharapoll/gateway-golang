@@ -20,3 +20,8 @@ watch:
 .PHONY: gqlgen
 gqlgen:
 	go run scripts/gqlgen.go --config internal/graph/gqlgen.yml
+
+.PHONY: pbgen
+pbgen:
+	protoc --proto_path=third_party/service/v1 --proto_path=third_party --go_out=plugins=grpc:pkg/service/v1 ping_pong.proto --experimental_allow_proto3_optional
+	protoc --proto_path=third_party/service/v1 --proto_path=third_party --go_out=plugins=grpc:pkg/service/v1 login.proto --experimental_allow_proto3_optional

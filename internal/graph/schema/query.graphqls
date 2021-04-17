@@ -1,0 +1,7 @@
+type Query {
+    todos: [Todo!]!
+    pingService(input:PingPong): Boolean
+    customerProfile(input:DipChip!): CustomerProfile!
+    staffProfile: StaffProfile!
+    login(input: NewLogin!): RmLogin!
+}

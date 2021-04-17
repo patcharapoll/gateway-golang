@@ -1,0 +1,18 @@
+input NewRegister {
+  email: String!
+  mobileNo: String
+}
+
+type RmRegister {
+  success: Boolean!
+  token: String!
+}
+
+input NewLogin {
+  pin: String!
+}
+
+type RmLogin {
+  success: Boolean!
+  token: String
+}
