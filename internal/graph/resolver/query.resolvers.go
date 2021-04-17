@@ -15,7 +15,8 @@ func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 }
 
 func (r *queryResolver) PingService(ctx context.Context, input *model.PingPong) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	success := true
+	return &success, nil
 }
 
 func (r *queryResolver) CustomerProfile(ctx context.Context, input model.DipChip) (*model.CustomerProfile, error) {

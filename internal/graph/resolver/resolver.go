@@ -18,7 +18,7 @@ var Module = fx.Provide(NewResolver)
 // Resolver ...
 type Resolver struct {
 	config     *config.Configuration
-	grpcclient *grpcclient.GRPC
+	grpcClient *grpcclient.GRPC
 	todos      []*model.Todo
 }
 
@@ -27,9 +27,9 @@ func NewResolver(
 	config *config.Configuration,
 	grpc *grpcclient.GRPC,
 ) *Resolver {
-	resolver := &Resolver{
+	resolver := Resolver{
 		config:     config,
-		grpcclient: grpc,
+		grpcClient: grpc,
 	}
-	return resolver
+	return &resolver
 }
