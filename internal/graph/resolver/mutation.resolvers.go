@@ -8,7 +8,10 @@ import (
 	"fmt"
 	"gateway-golang/internal/graph/generated"
 	"gateway-golang/internal/graph/model"
+	_model "gateway-golang/internal/model"
+	"gateway-golang/internal/utils"
 	"math/rand"
+	"time"
 )
 
 func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
@@ -26,7 +29,9 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) 
 
 func (r *mutationResolver) RmRegister(ctx context.Context, input *model.NewRegister) (*model.RmRegister, error) {
 	result := true
-	token := ""
+	token := utils.GenerateToken(_model.ServicePayload{
+		UserID: "914da998-9764-11eb-a8b3-0242ac130003",
+	}, time.Now().Add(r.config.TokenDuration).Unix())
 
 	return &model.RmRegister{
 		Success: result,

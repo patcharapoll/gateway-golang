@@ -38,6 +38,7 @@ func runApplication(
 				return nil
 			},
 			OnStop: func(ctx context.Context) error {
+
 				return server.Stop(ctx)
 			},
 		},

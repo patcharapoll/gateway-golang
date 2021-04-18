@@ -88,7 +88,6 @@ func ForAuthorizationContext(ctx context.Context) string {
 	if !ok {
 		return ""
 	}
-
 	return d
 }
 

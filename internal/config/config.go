@@ -1,6 +1,8 @@
 package config
 
 import (
+	"time"
+
 	"github.com/caarlos0/env/v6"
 	"go.uber.org/fx"
 )
@@ -13,7 +15,8 @@ type Configuration struct {
 	Port        string `env:"PORT" envDefault:"3003"`
 	Environment string `env:"ENV" envDefault:"localhost"`
 
-	EXAMPLEConnection string `env:"EXAMPLE_CONNECTION" envDefault:"127.0.0.1:3001"`
+	EXAMPLEConnection string        `env:"EXAMPLE_CONNECTION" envDefault:"localhost:3001"`
+	TokenDuration     time.Duration `env:"TOKEN_DURATION" envDefault:"30m"`
 }
 
 // NewConfiguration ...

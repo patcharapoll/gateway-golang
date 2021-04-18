@@ -31,6 +31,7 @@ func NewGRPC(config *config.Configuration) (*GRPC, error) {
 	if err := g.connect(); err != nil {
 		return nil, err
 	}
+
 	return g, nil
 }
 
@@ -40,19 +41,18 @@ func (g *GRPC) connect() error {
 		err       error
 	)
 	group := new(errgroup.Group)
-
 	group.Go(func() error {
-		_, err = g.connectToService(g.config.EXAMPLEConnection)
+		myService, err = g.connectToService(g.config.EXAMPLEConnection)
 		if err != nil {
 			return err
 		}
 		return nil
 	})
-
 	if err := group.Wait(); err != nil {
 		return err
 	}
 
+	// myService, _ := g.connectToService(g.config.EXAMPLEConnection)
 	g.PingPongServiceClient = service_v1.NewPingPongServiceClient(myService)
 	g.LoginServiceClient = service_v1.NewLoginServiceClient(myService)
 
